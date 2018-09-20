@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>TIC-TAC-TOE</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="script.js"></script>
+    </head>
+    <body>
+        <div class="header">
+            <h1>TIC-TAC-TOE</h1>
+        </div>
+        <div class="body">
+            <table id="board">
+                <tr>
+                    <td id="row2col0" onclick="change(this.id)"></td>
+                    <td id="row2col1" onclick="change(this.id)"></td>
+                    <td id="row2col2" onclick="change(this.id)"></td>
+                </tr>
+                <tr>
+                    <td id="row1col0" onclick="change(this.id)"></td>
+                    <td id="row1col1" onclick="change(this.id)"></td>
+                    <td id="row1col2" onclick="change(this.id)"></td>
+                </tr>
+                <tr>
+                    <td id="row0col0" onclick="change(this.id)"></td>
+                    <td id="row0col1" onclick="change(this.id)"></td>
+                    <td id="row0col2" onclick="change(this.id)"></td>
+                </tr>
+            </table>
+            <span id="restart">
+                <input type="submit" value="Restart" onclick="restart()">
+            </span>
+            <p id="winner"></p>
+        </div>
+    </body>
+</html>

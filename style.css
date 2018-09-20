@@ -1,0 +1,50 @@
+@keyframes highlight {
+ 	0% {
+ 		background: none
+ 	}
+ 	100% {
+ 		background: red;
+ 	}
+}
+
+body {
+    font-family: sans-serif;
+}
+
+.header {
+    text-align: center;
+}
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+td {
+    
+    transition: all 0.5s ease;
+    background-color: grey;
+    color: white;
+    font-size: 300%;
+    text-align: center;
+    border: 2px solid grey;
+    border-radius: 25px;
+    height: 150px;
+    width: 150px;
+}
+
+td:hover {
+    background-color: darkgray!important;
+    border: 2px solid darkgray!important;
+}
+
+#winner {
+    font-weight: bold;
+    text-align: center;
+}
+
+#restart {
+    display: flex;
+    justify-content: center;
+}
