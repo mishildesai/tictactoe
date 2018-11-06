@@ -9,12 +9,15 @@ const borderColorPlayer1 = "blue";
 const backgroundColorNeutral = "grey";
 const borderColorNeutral = "grey";
 
-var turn = xString;
-var winner = false;
+var turn;
+var winner;
 var board;
-var moves = 0;
+var moves;
 
 function init() {
+	turn = xString;
+    moves = 0;
+    winner = false;
     board = [
         ["","",""],
         ["","",""],
@@ -92,9 +95,6 @@ function winCheckO() {
 }
 
 function restart() {
-    turn = xString;
-    moves = 0;
-    winner = false;
     init();
     document.getElementById("winner").innerHTML = "";
     for (var row = 0; row < 3; row++) {
