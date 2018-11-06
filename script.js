@@ -1,4 +1,15 @@
-var turn = "X";
+//Content
+const xString = "X";
+const oString = "O";
+//Colors
+const backgroundColorPlayer2 = "red";
+const borderColorPlayer2 = "red";
+const backgroundColorPlayer1 = "blue";
+const borderColorPlayer1 = "blue";
+const backgroundColorNeutral = "grey";
+const borderColorNeutral = "grey";
+
+var turn = xString;
 var winner = false;
 var board;
 var moves = 0;
@@ -17,22 +28,22 @@ function change(id) {
         moves ++;
         document.getElementById(id).innerHTML = turn;
         board[id.charAt(3)][id.charAt(7)] = turn;
-        if (turn === "X") {
-            document.getElementById(id).style.backgroundColor = "blue";
-            document.getElementById(id).style.borderColor = "blue";
+        if (turn === xString) {
+            document.getElementById(id).style.backgroundColor = backgroundColorPlayer1;
+            document.getElementById(id).style.borderColor = borderColorPlayer1;
             winner = winCheckX();
             if (winner) {
-                document.getElementById("winner").innerHTML = "X HAS WON!";
+                document.getElementById("winner").innerHTML = xString + " HAS WON!";
             }
-            turn = "O";
+            turn = oString;
         } else {
-            document.getElementById(id).style.backgroundColor = "red";
-            document.getElementById(id).style.borderColor = "red";
+            document.getElementById(id).style.backgroundColor = backgroundColorPlayer2;
+            document.getElementById(id).style.borderColor = borderColorPlayer2;
             winner = winCheckO();
             if (winner) {
-                document.getElementById("winner").innerHTML = "O HAS WON!";
+                document.getElementById("winner").innerHTML = oString + " HAS WON!";
             }
-            turn = "X";
+            turn = xString;
         }
     }
     if (moves == 9 && winner == false) {
@@ -89,8 +100,8 @@ function restart() {
     for (var row = 0; row < 3; row++) {
         for (var column = 0; column < 3; column++) {
             var id = "row" + row + "col" + column;
-            document.getElementById(id).style.backgroundColor = "grey";
-            document.getElementById(id).style.borderColor = "grey";
+            document.getElementById(id).style.backgroundColor = backgroundColorNeutral;
+            document.getElementById(id).style.borderColor = borderColorNeutral;
             document.getElementById(id).innerHTML = "";
         }
     }
