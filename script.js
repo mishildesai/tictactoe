@@ -9,11 +9,15 @@ const borderColorPlayer1 = "blue";
 const backgroundColorNeutral = "grey";
 const borderColorNeutral = "grey";
 
+//Variables
 var turn;
 var winner;
 var board;
 var moves;
 
+/*
+ * Sets all variables to their correct initial states
+*/
 function init() {
 	turn = xString;
     moves = 0;
@@ -25,8 +29,14 @@ function init() {
     ];
 }
 
+/*
+ * This function is reponsible for modifying the visual state and the non-visual state of the board.
+ * It responds whenever a cell in the table is clicked.
+*/
 function change(id) {
+	//Current value of the table cell
     var text = document.getElementById(id).innerHTML;
+	//If no one has won, the cell is empty and 9 moves haven't been made
     if (text === "" && !winner && moves < 9) {
         moves ++;
         document.getElementById(id).innerHTML = turn;
@@ -49,22 +59,30 @@ function change(id) {
             turn = xString;
         }
     }
+	//If it is a draw
     if (moves == 9 && winner == false) {
         document.getElementById("winner").innerHTML = "DRAW!";
     }
 }
 
+/*
+ * This function checks whether player two ("X") has won the game
+ * Returns true if they have and false if they haven't.
+*/
 function winCheckX() {
+	//Horizontally
     for (var i = 2; i >= 0; i--) {
         if (board[i][0] === xString && board[i][1] === xString && board[i][2] === xString) {
             return true;
         }
     }
+	//Vertically
     for (var j = 2; j >= 0; j--) {
         if (board[0][j] === xString && board[1][j] === xString && board[2][j] === xString) {
             return true;
         }
     }
+	//Diagonally
     if (board[0][0] === xString && board[1][1] === xString && board[2][2] === xString) {
         return true;
     }
@@ -74,17 +92,24 @@ function winCheckX() {
     return false;
 }
 
+/*
+ * This function checks whether player two ("O") has won the game
+ * Returns true if they have and false if they haven't.
+*/
 function winCheckO() {
+	//Horizontally
     for (var i = 2; i >= 0; i--) {
         if (board[i][0] === oString && board[i][1] === oString && board[i][2] === oString) {
             return true;
         }
     }
+	//Vertically
     for (var j = 2; j >= 0; j--) {
         if (board[0][j] === oString && board[1][j] === oString && board[2][j] === oString) {
             return true;
         }
     }
+	//Diagonally
     if (board[0][0] === oString && board[1][1] === oString && board[2][2] === oString) {
         return true;
     }
@@ -94,9 +119,16 @@ function winCheckO() {
     return false;
 }
 
+/*
+ * This function effectively resets the visual representation of board as well as the data-structure representation.
+ * Reloading the HTML page has the same effect; this function exists for convenience.
+*/
 function restart() {
+	//Resets all variables
     init();
+	//Resets winner text
     document.getElementById("winner").innerHTML = "";
+	//Resets colors of the table
     for (var row = 0; row < 3; row++) {
         for (var column = 0; column < 3; column++) {
             var id = "row" + row + "col" + column;
