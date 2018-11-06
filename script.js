@@ -53,19 +53,19 @@ function change(id) {
 
 function winCheckX() {
     for (var i = 2; i >= 0; i--) {
-        if (board[i][0] === "X" && board[i][1] === "X" && board[i][2] === "X") {
+        if (board[i][0] === xString && board[i][1] === xString && board[i][2] === xString) {
             return true;
         }
     }
     for (var j = 2; j >= 0; j--) {
-        if (board[0][j] === "X" && board[1][j] === "X" && board[2][j] === "X") {
+        if (board[0][j] === xString && board[1][j] === xString && board[2][j] === xString) {
             return true;
         }
     }
-    if (board[0][0] === "X" && board[1][1] === "X" && board[2][2] === "X") {
+    if (board[0][0] === xString && board[1][1] === xString && board[2][2] === xString) {
         return true;
     }
-    if (board[2][0] === "X" && board[1][1] === "X" && board[0][2] === "X") {
+    if (board[2][0] === xString && board[1][1] === xString && board[0][2] === xString) {
         return true;
     }
     return false;
@@ -73,26 +73,26 @@ function winCheckX() {
 
 function winCheckO() {
     for (var i = 2; i >= 0; i--) {
-        if (board[i][0] === "O" && board[i][1] === "O" && board[i][2] === "O") {
+        if (board[i][0] === oString && board[i][1] === oString && board[i][2] === oString) {
             return true;
         }
     }
     for (var j = 2; j >= 0; j--) {
-        if (board[0][j] === "O" && board[1][j] === "O" && board[2][j] === "O") {
+        if (board[0][j] === oString && board[1][j] === oString && board[2][j] === oString) {
             return true;
         }
     }
-    if (board[0][0] === "O" && board[1][1] === "O" && board[2][2] === "O") {
+    if (board[0][0] === oString && board[1][1] === oString && board[2][2] === oString) {
         return true;
     }
-    if (board[2][0] === "O" && board[1][1] === "O" && board[0][2] === "O") {
+    if (board[2][0] === oString && board[1][1] === oString && board[0][2] === oString) {
         return true;
     }
     return false;
 }
 
 function restart() {
-    turn = "X";
+    turn = xString;
     moves = 0;
     winner = false;
     init();
